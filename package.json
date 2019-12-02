@@ -1,0 +1,18 @@
+{
+  "name": "6m-tutorial",
+  "version": "1.0.0",
+  "description": "Tutorial",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tuicom/6m-env": "^5.4.0",
+    "eslint": "^6.7.1",
+    "prettier": "^1.19.1",
+    "stylelint": "^12.0.0"
+  }
+}

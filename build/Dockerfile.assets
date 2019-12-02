@@ -1,0 +1,12 @@
+FROM node:12
+
+COPY frontend/. /opt/src
+
+RUN mkdir /opt/build && \
+    cd /opt/src && \
+    ([ -d node_modules ] && rm -rf node_modules || :) && \
+    npm install && \
+    PARCEL_WORKERS=1 npx parcel build --out-dir /opt/build --out-file main.js main.js && \
+    cp -r 6m 6m.json /opt/build/
+
+WORKDIR /opt/build/

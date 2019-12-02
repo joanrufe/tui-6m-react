@@ -1,0 +1,10 @@
+FROM node:12
+
+COPY middlelayer/. /srv/
+
+RUN cd /srv/ && \
+  ([ -d node_modules ] && rm -rf node_modules || :) && \
+  npm install --only=prod --no-audit
+
+WORKDIR /srv/
+CMD ["node", "/srv/"]

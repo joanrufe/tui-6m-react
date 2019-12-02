@@ -1,0 +1,78 @@
+{
+  "name": "My component",
+  "description": "This 6M component prints **Hello World** in different languages",
+  "icon": "6m/images/icon.svg",
+  "documentation": "6m/docs/main.md",
+  "maintainer": "you@example.com",
+  "6m-version": "2.0",
+  "locales": ["en-US", "de-DE"],
+  "tag": "tui-6m-tutorial-component",
+  "attributes": [
+    {
+      "name": "level",
+      "description": "Allows setting a severity level, which will paint the border of the component accordingly.",
+      "schema": {
+        "type": "string",
+        "enum": ["warning", "alert"]
+      },
+      "required": false
+    }
+  ],
+  "events": {
+    "publish": [
+      {
+        "name": "click",
+        "description": "Occurs when the element is clicked and provides the coordinates of the click, relative to the element.",
+        "data": [
+          {
+            "name": "xPos",
+            "description": "The horizontal position of the click.",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "yPos",
+            "description": "The vertical position of the click.",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        ]
+      }
+    ],
+    "subscribe": [
+      {
+        "name": "background.change",
+        "description": "Allows changing the background color.",
+        "data": [
+          {
+            "name": "color",
+            "description": "The color code. Currently, only 3- or 6-digit hex codes are supported.",
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "pattern": "^#[A-Fa-f0-9]{3}$"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^#[A-Fa-f0-9]{6}$"
+                }
+              ]
+            },
+            "default": null
+          }
+        ]
+      }
+    ]
+  },
+  "skeletons": [
+    {
+      "location": "6m/skeleton/minimal.html",
+      "description": "A minimal, non-animated skeleton for bright backgrounds."
+    }
+  ]
+}

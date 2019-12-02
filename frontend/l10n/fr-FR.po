@@ -1,0 +1,10 @@
+msgid ""
+msgstr ""
+"Language: fr_FR\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+
+msgid "Hello World"
+msgstr "Le singe est sur la branche"
+
+msgid "Biciclets"
+msgstr "YEEEEAH BOY"

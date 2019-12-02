@@ -2,11 +2,17 @@ FROM node:12
 
 COPY frontend/. /opt/src
 
+RUN mkdir /root/.ssh/
+RUN echo "${SSH_PRIVATE_KEY}" > /root/.ssh/id_rsa
+RUN touch /root/.ssh/known_hosts
+RUN ssh-keyscan bitbucket.tui.nl >> /root/.ssh/known_hosts
+
 RUN mkdir /opt/build && \
     cd /opt/src && \
     ([ -d node_modules ] && rm -rf node_modules || :) && \
     npm install && \
-    PARCEL_WORKERS=1 npx parcel build --out-dir /opt/build --out-file main.js main.js && \
+    npm run build && \
+    cp -r dist/* /opt/build \
     cp -r 6m 6m.json /opt/build/
 
 WORKDIR /opt/build/

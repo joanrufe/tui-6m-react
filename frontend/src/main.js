@@ -1,15 +1,14 @@
-import reactToWebComponent from "react-to-webcomponent";
+// import reactToWebComponent from "react-to-webcomponent";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
-import l10n from "@tuicom/l10n";
-import translations from "./l10n/translations.json";
-l10n(translations);
+import L10n from "@tuicom/l10n/l10n"
+import translations from "./l10n/translations.json"
+// import "tui-components/lib/globals/global.scss"
 
-const AppComponent = reactToWebComponent(App, React, ReactDOM);
-customElements.define("app", AppComponent);
+const l10n = new L10n(translations, "fr-FR");
 
-export class Tui6mTutorialComponent extends HTMLElement {
+export class Tui6mComponent extends HTMLElement {
   constructor() {
     super();
     this.shadow = this.attachShadow({ mode: "open" });
@@ -52,8 +51,9 @@ export class Tui6mTutorialComponent extends HTMLElement {
   }
 
   connectedCallback() {
-    this.shadow.innerHTML = "<app></app>";
-    this.loadRandomNumber();
+    ReactDOM.render(<App />, this.shadow)
+    const styles = document.querySelector('#tui-styles style');
+    this.shadow.appendChild(styles)
   }
 }
 
@@ -66,4 +66,4 @@ if (assetsUrl.indexOf("__") === 0) {
   middlelayerUrl = "http://localhost:3500";
 }
 
-customElements.define("tui-6m-tutorial-component", Tui6mTutorialComponent);
+customElements.define("tui-6m-component", Tui6mComponent);

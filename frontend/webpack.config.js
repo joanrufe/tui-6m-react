@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const StyleLintPlugin = require('stylelint-webpack-plugin');
 const path = require('path');
 const postcssPresetEnv = require('postcss-preset-env');
 const cssNano = require('cssnano');
@@ -24,7 +23,7 @@ module.exports = function webpackConfig(env) {
     devServer: {
       hot: true,
       open: false,
-      port: 3500,
+      port: 3000,
       contentBase: path.resolve(__dirname, 'public/'),
       historyApiFallback: true,
     },
@@ -72,29 +71,10 @@ module.exports = function webpackConfig(env) {
                 {
                   loader: 'style-loader',
                   options: {
-                    // insert: 'tui-6m-component::shadow'
                     injectType: 'singletonStyleTag',
                     insert: function insertAtTop(element) {
-                      // var parentElement = document.querySelector('#host');
-                      // if (!parentElement.shadowRoot) {
-                      //   parentElement.attachShadow({ mode: 'open'});
-                      // }
-                      // var parent = parentElement.shadowRoot;
-                      var parent = document.querySelector('#tui-styles');
-                      // eslint-disable-next-line no-underscore-dangle
-                      var lastInsertedElement =
-                        window._lastElementInsertedByStyleLoader;
-
-                      if (!lastInsertedElement) {
-                        parent.insertBefore(element, parent.firstChild);
-                      } else if (lastInsertedElement.nextSibling) {
-                        parent.insertBefore(element, lastInsertedElement.nextSibling);
-                      } else {
-                        parent.appendChild(element);
-                      }
-                      // document.removeChild(parent);
-                      // eslint-disable-next-line no-underscore-dangle
-                      window._lastElementInsertedByStyleLoader = element;
+                      const parent = document.querySelector('#tui-styles');
+                      parent.appendChild(element);
                     },
                   }
                 }

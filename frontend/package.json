@@ -27,6 +27,7 @@
     "node-sass": "^4.13.0",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
+    "raw-loader": "^4.0.0",
     "sass": "^1.23.7",
     "sass-loader": "^8.0.0",
     "sass-resources-loader": "^2.0.1",
@@ -67,7 +68,7 @@
     "react-visibility-sensor": "^5.1.1",
     "rimraf": "^3.0.0",
     "smoothscroll-polyfill": "^0.4.4",
-    "tui-components": "git+ssh://git@bitbucket.tui.nl:7999/tosda/styleguide.git#v0.2.34",
+    "tui-components": "git+ssh://git@bitbucket.tui.nl:7999/tosda/styleguide.git#WebComponentsRefactor",
     "typescript": "^3.5.1",
     "use-media": "^1.4.0",
     "window-or-global": "^1.0.1"

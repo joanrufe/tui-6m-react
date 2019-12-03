@@ -4,7 +4,6 @@ import ReactDOM from "react-dom";
 import App from "./components/App";
 import L10n from "@tuicom/l10n/l10n"
 import translations from "./l10n/translations.json"
-// import "tui-components/lib/globals/global.scss"
 
 const l10n = new L10n(translations, "fr-FR");
 
@@ -30,6 +29,12 @@ export class Tui6mComponent extends HTMLElement {
         this.style.backgroundColor = data.color;
       }
     );
+
+    const css = require("!!raw-loader!tui-components/lib/globals/global.css");
+    const head = document.querySelector('head');
+    const style = document.createElement('style');
+    style.innerHTML = css.default;
+    head.appendChild(style);
   }
 
   loadRandomNumber() {
@@ -52,8 +57,20 @@ export class Tui6mComponent extends HTMLElement {
 
   connectedCallback() {
     ReactDOM.render(<App />, this.shadow)
-    const styles = document.querySelector('#tui-styles style');
-    this.shadow.appendChild(styles)
+
+    const styles = document.querySelector('#tui-styles style') || document.querySelector('head link[href="/main.css"]');
+
+    if (process.env.NODE_ENV === "development" && styles) {
+      this.shadow.appendChild(styles);
+    } else {
+      const link = document.createElement('link');
+      link.id   = 'tui-styles';
+      link.rel  = 'stylesheet';
+      link.type = 'text/css';
+      link.href = `${assetsUrl}/main.css`;
+      link.media = 'all';
+      this.shadow.appendChild(link);
+    }
   }
 }
 

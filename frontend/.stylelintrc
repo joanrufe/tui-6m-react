@@ -1,0 +1,20 @@
+{
+  "extends": [
+    "stylelint-config-prettier",
+    "stylelint-config-sass-guidelines"
+  ],
+  "ignoreFiles": ["**/*.js", "**/*.ts", "**/*.tsx", "**/*.jsx"],
+  "rules": {
+    "indentation": 2,
+    "max-empty-lines": 1,
+    "max-nesting-depth": 3,
+    "order/properties-alphabetical-order": null,
+    "no-missing-end-of-source-newline": null,
+    "value-no-vendor-prefix": null,
+    "selector-class-pattern": "^(?:(?:o|c|u|t|s|is|has|_|js|qa)-)?[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:\\[.+\\])?$",
+    "selector-max-compound-selectors": 4,
+    "selector-no-qualifying-type": [true, {
+      "ignore": ["class", "attribute"]
+    }]
+  }
+}

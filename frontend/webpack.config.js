@@ -1,10 +1,10 @@
 const webpack = require('webpack');
+const path = require('path');
+const dotenv = require('dotenv').config();
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const path = require('path');
 const postcssPresetEnv = require('postcss-preset-env');
 const cssNano = require('cssnano');
-const dotenv = require('dotenv').config();
 
 module.exports = function webpackConfig(env) {
   return {
@@ -56,11 +56,7 @@ module.exports = function webpackConfig(env) {
       rules: [
         {
           test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-          use: [
-            {
-              loader: 'file-loader',
-            },
-          ],
+          loader: 'file-loader',
         },
         {
           test: /\.(sa|sc|c)ss$/,
@@ -105,10 +101,6 @@ module.exports = function webpackConfig(env) {
           test: /\.(js|jsx|ts|tsx)$/,
           exclude: /node_modules/,
           loader: 'babel-loader',
-        },
-        {
-          test: /\.md$/,
-          loaders: ['json-loader', 'front-matter-loader'],
         },
       ],
     },

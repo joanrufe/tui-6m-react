@@ -1,7 +1,6 @@
 import React from "react";
 import Loader from "tui-components/lib/atoms/Loader/Loader";
 import Button, { ButtonTypes } from "tui-components/lib/atoms/Button/Button";
-import "tui-components/lib/atoms/Button/Button.scss";
 import "./App.scss";
 
 export default () => {

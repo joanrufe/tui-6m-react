@@ -10,9 +10,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@tuicom/6m-env": "^5.4.0",
-    "eslint": "^6.7.1",
-    "prettier": "^1.19.1",
-    "stylelint": "^12.0.0"
+    "@tuicom/6m-env": "^5.4.0"
   }
 }

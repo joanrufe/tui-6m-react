@@ -1,8 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import L10n from '@tuicom/l10n/l10n';
-import translations from './l10n/translations.json';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./src/components/App";
+import L10n from "@tuicom/l10n/l10n"
+import translations from "./src/l10n/translations.json"
 
 const l10n = new L10n(translations, 'fr-FR');
 
@@ -29,10 +29,11 @@ export class Tui6mComponent extends HTMLElement {
       },
     );
 
-    const css = require('!!raw-loader!tui-components/lib/globals/global.css');
+    const css = require("!!raw-loader!tui-components/lib/globals/global.css").default;
+    this.globalCSS = css.replace('body {', ':host {');
     const head = document.querySelector('head');
     const style = document.createElement('style');
-    style.innerHTML = css.default;
+    style.innerHTML = css;
     head.appendChild(style);
   }
 
@@ -61,8 +62,12 @@ export class Tui6mComponent extends HTMLElement {
       document.querySelector('#tui-styles style') ||
       document.querySelector('head link[href="/main.css"]');
 
-    if (process.env.NODE_ENV === 'development' && styles) {
+    if (process.env.NODE_ENV === "development" && styles) {
+      const style = document.createElement('style');
+      style.innerHTML = this.globalCSS;
+      this.shadow.appendChild(style);
       this.shadow.appendChild(styles);
+
     } else {
       const link = document.createElement('link');
       link.id = 'tui-styles';

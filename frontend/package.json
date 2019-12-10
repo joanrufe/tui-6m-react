@@ -2,10 +2,10 @@
   "name": "frontend",
   "version": "1.0.0",
   "description": "",
-  "main": "src/main.js",
+  "main": "main.js",
   "scripts": {
     "develop": "webpack-dev-server --env.development --env.devServer --mode=development --config=webpack.config.js",
-    "build": "rimraf dist && webpack --env.production --mode=development --config=webpack.config.js",
+    "build": "rimraf dist && webpack --env.production --mode=production --config=webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -64,11 +64,11 @@
       "fr-FR"
     ],
     "extract": [
-      "src/main.js"
+      "main.js"
     ],
     "tables": {
       "l10n/translations.json": [
-        "src/main.js"
+        "main.js"
       ]
     }
   }

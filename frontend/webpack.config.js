@@ -12,7 +12,7 @@ module.exports = function webpackConfig(env) {
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
     entry: {
-      main: './src/main.js',
+      main: path.resolve(__dirname, './main.js'),
     },
     output: {
       path: path.resolve(__dirname, './dist'),
@@ -24,12 +24,11 @@ module.exports = function webpackConfig(env) {
       hot: true,
       open: false,
       port: 3000,
-      contentBase: path.resolve(__dirname, 'public/'),
       historyApiFallback: true,
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './src/index.html',
+        template: path.resolve(__dirname, './index.html'),
       }),
       new MiniCssExtractPlugin({
         filename: '[name].css',

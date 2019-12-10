@@ -63,25 +63,22 @@ module.exports = function webpackConfig(env) {
             ...(env.production
               ? [MiniCssExtractPlugin.loader]
               : [
-                {
-                  loader: 'style-loader',
-                  options: {
-                    injectType: 'singletonStyleTag',
-                    insert: function insertAtTop(element) {
-                      const parent = document.querySelector('#tui-styles');
-                      parent.appendChild(element);
+                  {
+                    loader: 'style-loader',
+                    options: {
+                      injectType: 'singletonStyleTag',
+                      insert: function insertAtTop(element) {
+                        const parent = document.querySelector('#tui-styles');
+                        parent.appendChild(element);
+                      },
                     },
-                  }
-                }
-              ]),
+                  },
+                ]),
             'css-loader',
             {
               loader: 'postcss-loader',
               options: {
-                plugins: () => [
-                  postcssPresetEnv(),
-                  cssNano(),
-                ],
+                plugins: () => [postcssPresetEnv(), cssNano()],
               },
             },
             'sass-loader',

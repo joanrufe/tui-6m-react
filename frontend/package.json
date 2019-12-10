@@ -4,8 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "develop": "webpack-dev-server --env.development --env.devServer --mode=development --config=webpack.config.js",
-    "build": "rimraf dist && webpack --env.production --mode=production --config=webpack.config.js",
+    "develop": "webpack-dev-server --env.development --env.devServer --mode=development",
+    "build": "rimraf dist && webpack --env.production --mode=development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -18,6 +18,7 @@
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
     "@babel/preset-typescript": "^7.7.4",
+    "@tuicom/l10n-tools": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^2.10.0",
     "@typescript-eslint/parser": "^2.10.0",
     "babel-loader": "^8.0.5",
@@ -64,11 +65,11 @@
       "fr-FR"
     ],
     "extract": [
-      "main.js"
+      "src/components/App.jsx"
     ],
     "tables": {
       "l10n/translations.json": [
-        "main.js"
+        "src/components/App.jsx"
       ]
     }
   }

@@ -1,0 +1,10 @@
+msgid ""
+msgstr ""
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Hello World!"
+msgstr "Hello World! DE"
+
+msgid "React & 6M"
+msgstr "React & 6M DE"

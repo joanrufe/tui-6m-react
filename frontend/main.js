@@ -1,10 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./src/components/App";
-import L10n from "@tuicom/l10n/l10n"
-import translations from "./src/l10n/translations.json"
-
-const l10n = new L10n(translations, 'fr-FR');
 
 export class Tui6mComponent extends HTMLElement {
   constructor() {
@@ -56,7 +52,7 @@ export class Tui6mComponent extends HTMLElement {
   }
 
   connectedCallback() {
-    ReactDOM.render(<App />, this.shadow);
+    ReactDOM.render(<App locale={ this.getAttribute("locale")}/>, this.shadow);
 
     const styles =
       document.querySelector('#tui-styles style') ||

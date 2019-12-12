@@ -1,0 +1,23 @@
+{
+  "name": "6M demo component",
+  "icon": "6m/images/icon.svg",
+  "screenshots": [{
+      "description": "The default view of the component.",
+      "location": "6m/images/screenshot1.png"
+  }],
+  "description": "A component for showing how 6M works. Loads random content from public APIs.",
+  "documentation": "6m/docs/main.md",
+  "6m-version": "2.0",
+  "tag": "tui-6m-component",
+  "maintainer": "picr-developmentb2c-tuicom@tui.com",
+  "locales": ["de-DE", "fr-FR"],
+  "attributes": [],
+  "events": {
+      "publish": [],
+      "subscribe": []
+  },
+  "skeletons": [{
+      "description": "A minimal, light-gray skeleton.",
+      "location": "6m/skeletons/minimal.html"
+  }]
+}

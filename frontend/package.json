@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "develop": "webpack-dev-server --env.development --env.devServer --mode=development",
-    "build": "rimraf dist && webpack --env.production --mode=development",
+    "build": "rimraf dist && webpack --env.production --mode=production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

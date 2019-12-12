@@ -27,3 +27,20 @@ And make sure you have this settings in the root folder:
   ]
 }
 ```
+
+# How to develop
+
+Go to `frontend` folder and run:
+
+```sh
+npm install
+npm run develop
+```
+
+# How to deploy
+
+Go to the root folder of the project and execute:
+
+```sh
+npm run build
+```

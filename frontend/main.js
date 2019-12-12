@@ -58,10 +58,11 @@ export class Tui6mComponent extends HTMLElement {
       document.querySelector('#tui-styles style') ||
       document.querySelector('head link[href="/main.css"]');
 
+    const style = document.createElement('style');
+    style.innerHTML = this.globalCSS;
+    this.shadow.appendChild(style);
+
     if (process.env.NODE_ENV === "development" && styles) {
-      const style = document.createElement('style');
-      style.innerHTML = this.globalCSS;
-      this.shadow.appendChild(style);
       this.shadow.appendChild(styles);
 
     } else {

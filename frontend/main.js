@@ -34,18 +34,10 @@ export class Tui6mComponent extends HTMLElement {
     head.appendChild(style);
   }
 
-  loadRandomNumber() {
-    const xhr = new XMLHttpRequest(),
-      shadow = this.shadow; // must be reassigned due to closure scope
-
-    xhr.addEventListener('load', function() {
-      shadow.innerHTML += ` ${JSON.parse(this.response).value}`;
-    });
-
-    xhr.addEventListener('error', error => console.error(error));
-
-    xhr.open('GET', middlelayerUrl);
-    xhr.send();
+  async loadRandomNumber() {
+    const response = await fetch(middlelayerUrl).then(res => res.json());
+    this.randomNumber = response.value;
+    this.connectedCallback();
   }
 
   static get observedAttributes() {
@@ -54,7 +46,13 @@ export class Tui6mComponent extends HTMLElement {
 
   connectedCallback() {
     const locale = this.getAttribute('locale') || 'de-DE';
-    ReactDOM.render(<App locale={locale} />, this.shadow);
+
+    ReactDOM.render(
+      <App locale={locale} number={this.randomNumber} />,
+      this.shadow,
+    );
+
+    if (!this.randomNumber) this.loadRandomNumber();
 
     const styles =
       document.querySelector('#tui-styles style') ||

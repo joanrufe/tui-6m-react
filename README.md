@@ -37,6 +37,12 @@ npm install
 npm run develop
 ```
 
+Go to `middlelayer` folder and run:
+
+```sh
+npm start
+```
+
 # How to deploy
 
 Go to the root folder of the project and execute:

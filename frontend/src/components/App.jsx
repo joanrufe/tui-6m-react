@@ -6,10 +6,11 @@ import L10n from '@tuicom/l10n/l10n';
 import translations from '../../l10n/translations.json';
 import './App.scss';
 
-const App = ({ locale }) => {
+const App = ({ locale, number }) => {
   const l10n = new L10n(translations, locale);
   return (
     <Panel panelTitle="Tui Components" expanded={true}>
+      {number && <p>Random number fetched: {number}</p>}
       <Loader />
       <br />
       {l10n.t('Hello World!')}

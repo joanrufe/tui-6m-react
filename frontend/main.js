@@ -1,6 +1,6 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./src/components/App";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './src/components/App';
 
 export class Tui6mComponent extends HTMLElement {
   constructor() {
@@ -25,7 +25,8 @@ export class Tui6mComponent extends HTMLElement {
       },
     );
 
-    const css = require("!!raw-loader!tui-components/lib/globals/global.css").default;
+    const css = require('!!raw-loader!tui-components/lib/globals/global.css')
+      .default;
     this.globalCSS = css.replace('body {', ':host {');
     const head = document.querySelector('head');
     const style = document.createElement('style');
@@ -52,7 +53,8 @@ export class Tui6mComponent extends HTMLElement {
   }
 
   connectedCallback() {
-    ReactDOM.render(<App locale={ this.getAttribute("locale")}/>, this.shadow);
+    const locale = this.getAttribute('locale') || 'de-DE';
+    ReactDOM.render(<App locale={locale} />, this.shadow);
 
     const styles =
       document.querySelector('#tui-styles style') ||
@@ -62,9 +64,8 @@ export class Tui6mComponent extends HTMLElement {
     style.innerHTML = this.globalCSS;
     this.shadow.appendChild(style);
 
-    if (process.env.NODE_ENV === "development" && styles) {
+    if (process.env.NODE_ENV === 'development' && styles) {
       this.shadow.appendChild(styles);
-
     } else {
       const link = document.createElement('link');
       link.id = 'tui-styles';

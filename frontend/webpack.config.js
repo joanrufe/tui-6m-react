@@ -54,7 +54,7 @@ module.exports = function webpackConfig(env) {
     module: {
       rules: [
         {
-          test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+          test: /\.(woff(2)?|ttf|eot|svg|png|jpeg)(\?v=\d+\.\d+\.\d+)?$/,
           loader: 'file-loader',
         },
         {

@@ -25,7 +25,7 @@ export class Tui6mComponent extends HTMLElement {
       },
     );
 
-    const css = require('!!raw-loader!tui-components/lib/globals/global.css')
+    const css = require('!!raw-loader!semantic-ui-css/semantic.min.css')
       .default;
     this.globalCSS = css.replace('body {', ':host {');
     const head = document.querySelector('head');

@@ -81,16 +81,6 @@ module.exports = function webpackConfig(env) {
                 plugins: () => [postcssPresetEnv(), cssNano()],
               },
             },
-            'sass-loader',
-            {
-              loader: 'sass-resources-loader',
-              options: {
-                resources: path.resolve(
-                  __dirname,
-                  './node_modules/tui-components/lib/globals/sass-resources/index.scss',
-                ),
-              },
-            },
           ],
         },
         {

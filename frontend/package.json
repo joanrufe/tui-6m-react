@@ -55,7 +55,8 @@
     "core-js": "^3.1.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "tui-components": "git+ssh://git@bitbucket.tui.nl:7999/tosda/styleguide.git#WebComponentsRefactor",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.2",
     "typescript": "^3.5.1"
   },
   "l10n": {

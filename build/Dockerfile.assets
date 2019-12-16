@@ -3,9 +3,9 @@ FROM node:12
 RUN mkdir /opt/build
 COPY frontend/. /opt/src
 
-COPY frontend/dist/* /opt/build/
-
 RUN cd /opt/src && \
+  npm run build && \
+  cp -r dist/* /opt/build \
   cp -r 6m 6m.json /opt/build/
 
 WORKDIR /opt/build/

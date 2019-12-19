@@ -1,7 +1,7 @@
 FROM node:12
 
 RUN mkdir /opt/build
-COPY frontend/. /opt/src
+COPY frontend /opt/src
 
 RUN cd /opt/src && \
   npm i && \

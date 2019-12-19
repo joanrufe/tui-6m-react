@@ -4,6 +4,7 @@ RUN mkdir /opt/build
 COPY frontend/. /opt/src
 
 RUN cd /opt/src && \
+  npm i && \
   npm run build && \
   cp -r dist/* /opt/build \
   cp -r 6m 6m.json /opt/build/
